@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Questions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("SaveQuestion", "Vcall_Client", FormMethod.Post ))
+{
+    
+    <h2>Question : @ViewBag.Question</h2>
+    <select id="Q_Response" name="Q_Response">
+        <option selected="selected">Yes</option>
+        <option >No</option>
+    </select>
+
+     <input type="submit" value="Submit" />
+   
+
+         
+}
+
+
+

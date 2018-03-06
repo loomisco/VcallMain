@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+   
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107780573-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107780573-1');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+           
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-12">
+                @{
+
+
+                                string  Cust = Request.Cookies["Customer_Name"].Value;
+                             
+
+               if (Cust.ToString() == "Anthem Member Completed")
+                                {
+                            <img src="~/Content/images/IHCgroup.PNG" height="100" class="img-responsive left" />
+                   }
+                   else if (Cust.ToString() == "Anthem Call Center Completed")
+                   {
+                      <img src="~/Content/images/IHCgroup.png" height="100" class="img-responsive left" />
+                    }
+                    else if (Cust.ToString() == "UH1 Member Completed")
+                    {
+                        <img src="~/Content/images/loomis_header.png" height="100" class="img-responsive left" />
+                    }
+                    else if (Cust.ToString().Substring(0, 3) == "UH1")
+                    {
+                        <img src="~/Content/images/UH1.png" height="100" class="img-responsive left" />
+                    }
+                    else if (Cust.ToString().Substring(0, 3) == "Ant")
+                    {
+                        <img src="~/Content/images/Anthem.png" height="100" class="img-responsive left" />
+                    }
+                    else if (Cust.ToString().Substring(0, 3) == "eHe")
+                    {
+                        <img src="~/Content/images/E-health.png" height="100" class="img-responsive left" />
+                    }
+                    
+                    else if (Cust.ToString().Substring(0, 3) == "IAI")
+                    {
+                        <img src="~/Content/images/IAIC.png" height="100" class="img-responsive left" />
+                    }
+                    else
+                    {
+                            <img src="~/Content/images/error.png" height="100" class="img-responsive left" />
+
+                     }
+                   }
+               
+               
+            </div>
+            
+        </div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

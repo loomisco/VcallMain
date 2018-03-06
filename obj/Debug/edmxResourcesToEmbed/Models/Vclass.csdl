@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAppsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Vcall_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id_FK" Type="Int64" />
+    <Property Name="Client_PID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Fname" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Client_MI" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Lname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Client_DOB" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Q1" Type="Boolean" />
+    <Property Name="Client_Q2" Type="Boolean" />
+    <Property Name="Client_Q3" Type="Boolean" />
+    <Property Name="Client_Q4" Type="Boolean" />
+    <Property Name="Client_Q5" Type="Boolean" />
+    <Property Name="Client_Q6" Type="Boolean" />
+    <Property Name="Client_Q7" Type="Boolean" />
+    <Property Name="Client_Q8" Type="Boolean" />
+    <Property Name="Client_Q9" Type="Boolean" />
+    <Property Name="Client_Q10" Type="Boolean" />
+    <Property Name="Dt_Complete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vcall_Customer" Relationship="Self.FK_Vcall_Client_Vcall_Customer" FromRole="Vcall_Client" ToRole="Vcall_Customer" />
+  </EntityType>
+  <EntityType Name="Vcall_Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Guid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Hits" Type="Int32" />
+    <NavigationProperty Name="Vcall_Client" Relationship="Self.FK_Vcall_Client_Vcall_Customer" FromRole="Vcall_Customer" ToRole="Vcall_Client" />
+  </EntityType>
+  <EntityType Name="Vcall_Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question_Active" Type="Int64" />
+    <Property Name="Question_text_V1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question_text_V2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question_text_V3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Vcall_Client_Vcall_Customer">
+    <End Role="Vcall_Customer" Type="Self.Vcall_Customer" Multiplicity="0..1" />
+    <End Role="Vcall_Client" Type="Self.Vcall_Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vcall_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vcall_Client">
+        <PropertyRef Name="Customer_Id_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebAppsEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Vcall_Client" EntityType="Self.Vcall_Client" />
+    <EntitySet Name="Vcall_Customer" EntityType="Self.Vcall_Customer" />
+    <EntitySet Name="Vcall_Question" EntityType="Self.Vcall_Question" />
+    <AssociationSet Name="FK_Vcall_Client_Vcall_Customer" Association="Self.FK_Vcall_Client_Vcall_Customer">
+      <End Role="Vcall_Customer" EntitySet="Vcall_Customer" />
+      <End Role="Vcall_Client" EntitySet="Vcall_Client" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

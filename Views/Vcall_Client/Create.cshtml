@@ -1,0 +1,147 @@
+﻿@model Vcall.Models.Vcall_Client
+
+@{
+    ViewBag.Title = "Welcome!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+   
+    <div class="form-horizontal">
+        <h4>@Html.Raw(ViewBag.Greeting)</h4>
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+             
+            
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Customer_Id_FK ,new { @Value = ViewBag.Cust_Id_Fk, @type="hidden" }) 
+               
+            </div> 
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_PID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.Client_PID,   new { htmlAttributes = new { @class = "form-control", @placeholder = "9 Digit Policy Number" } } )
+                
+
+                 @Html.ValidationMessageFor(model => model.Client_PID, "", new { @class = "text-danger" })
+               
+            </div>
+        </div>
+        @if (Request.Cookies["Cust_Id_Fk"].Value == "5")
+        {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_Other_Pid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_Other_Pid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Client_Other_Pid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        }
+        else
+        {
+            @Html.EditorFor(model => model.Client_PID, new { htmlAttributes = new { style = "display:none" } })
+        }
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_Fname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_Fname, new { htmlAttributes = new { @class = "form-control" } })
+               
+                 @Html.ValidationMessageFor(model => model.Client_Fname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_MI, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_MI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Client_MI, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_Lname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_Lname, new { htmlAttributes = new { @class = "form-control" } })
+
+                
+                @Html.ValidationMessageFor(model => model.Client_Lname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+
+                @Html.EditorFor(model => model.Client_DOB, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy" } })
+               
+                        @Html.ValidationMessageFor(model => model.Client_DOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_Email, new { htmlAttributes = new { @class = "form-control" } })
+             
+                @Html.ValidationMessageFor(model => model.Client_Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client_Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client_Phone, new { htmlAttributes = new { @class = "form-control" } })
+               
+                 @Html.ValidationMessageFor(model => model.Client_Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+@if (Request.Cookies["customer_robot"].Value == "1" )
+{
+        <div class="form-group" >
+            <label class="control-label col-md-2" ></label>
+            <div class="col-md-10">
+                <div class="g-recaptcha" 
+                 data-sitekey="6Ldu6jIUAAAAADKQp6-STilVjpEHU9vORcen4Nfe">
+
+                </div>
+            </div>
+        </div>
+
+}
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+                  @Html.Raw("<b>" + ViewBag.Captcha + "</b><br>")
+                   
+                    <input type="submit" value="Create" id="btnValidateReCaptcha" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+}
+
+<div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</div>
+<footer>
+   
+</footer>

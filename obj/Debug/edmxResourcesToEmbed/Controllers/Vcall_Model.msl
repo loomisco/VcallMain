@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebAppsModel1StoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Vcall_Client">
+      <EntityTypeMapping TypeName="WebAppsModel1.Vcall_Client">
+        <MappingFragment StoreEntitySet="Vcall_Client">
+          <ScalarProperty Name="Customer_Id_FK" ColumnName="Customer_Id_FK" />
+          <ScalarProperty Name="Client_PID" ColumnName="Client_PID" />
+          <ScalarProperty Name="Client_Fname" ColumnName="Client_Fname" />
+          <ScalarProperty Name="Client_MI" ColumnName="Client_MI" />
+          <ScalarProperty Name="Client_Lname" ColumnName="Client_Lname" />
+          <ScalarProperty Name="Client_DOB" ColumnName="Client_DOB" />
+          <ScalarProperty Name="Client_Email" ColumnName="Client_Email" />
+          <ScalarProperty Name="Client_Phone" ColumnName="Client_Phone" />
+          <ScalarProperty Name="Client_Q1" ColumnName="Client_Q1" />
+          <ScalarProperty Name="Client_Q2" ColumnName="Client_Q2" />
+          <ScalarProperty Name="Client_Q3" ColumnName="Client_Q3" />
+          <ScalarProperty Name="Client_Q4" ColumnName="Client_Q4" />
+          <ScalarProperty Name="Client_Q5" ColumnName="Client_Q5" />
+          <ScalarProperty Name="Client_Q6" ColumnName="Client_Q6" />
+          <ScalarProperty Name="Client_Q7" ColumnName="Client_Q7" />
+          <ScalarProperty Name="Client_Q8" ColumnName="Client_Q8" />
+          <ScalarProperty Name="Client_Q9" ColumnName="Client_Q9" />
+          <ScalarProperty Name="Client_Q10" ColumnName="Client_Q10" />
+          <ScalarProperty Name="Dt_Complete" ColumnName="Dt_Complete" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vcall_Customer">
+      <EntityTypeMapping TypeName="WebAppsModel1.Vcall_Customer">
+        <MappingFragment StoreEntitySet="Vcall_Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Customer_Guid" ColumnName="Customer_Guid" />
+          <ScalarProperty Name="Customer_Hits" ColumnName="Customer_Hits" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vcall_Question">
+      <EntityTypeMapping TypeName="WebAppsModel1.Vcall_Question">
+        <MappingFragment StoreEntitySet="Vcall_Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question_text" ColumnName="Question_text" />
+          <ScalarProperty Name="Question_Active" ColumnName="Question_Active" />
+          <ScalarProperty Name="Question_text_V1" ColumnName="Question_text_V1" />
+          <ScalarProperty Name="Question_text_V2" ColumnName="Question_text_V2" />
+          <ScalarProperty Name="Question_text_V3" ColumnName="Question_text_V3" />
+          <ScalarProperty Name="Question_Type" ColumnName="Question_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAppsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Vcall_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Customer_Id_FK" Type="bigint" />
+    <Property Name="Client_PID" Type="nvarchar" MaxLength="100" />
+    <Property Name="Client_Fname" Type="nvarchar" MaxLength="25" />
+    <Property Name="Client_MI" Type="nvarchar" MaxLength="3" />
+    <Property Name="Client_Lname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Client_DOB" Type="nvarchar" MaxLength="15" />
+    <Property Name="Client_Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Client_Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Client_Q1" Type="bit" />
+    <Property Name="Client_Q2" Type="bit" />
+    <Property Name="Client_Q3" Type="bit" />
+    <Property Name="Client_Q4" Type="bit" />
+    <Property Name="Client_Q5" Type="bit" />
+    <Property Name="Client_Q6" Type="bit" />
+    <Property Name="Client_Q7" Type="bit" />
+    <Property Name="Client_Q8" Type="bit" />
+    <Property Name="Client_Q9" Type="bit" />
+    <Property Name="Client_Q10" Type="bit" />
+    <Property Name="Dt_Complete" Type="datetime" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vcall_Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Name" Type="varchar(max)" />
+    <Property Name="Customer_Guid" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_Hits" Type="int" />
+  </EntityType>
+  <EntityType Name="Vcall_Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question_text" Type="nvarchar(max)" />
+    <Property Name="Question_Active" Type="bigint" />
+    <Property Name="Question_text_V1" Type="nvarchar(max)" />
+    <Property Name="Question_text_V2" Type="nvarchar(max)" />
+    <Property Name="Question_text_V3" Type="nvarchar(max)" />
+    <Property Name="Question_Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="WebAppsModelStoreContainer">
+    <EntitySet Name="Vcall_Client" EntityType="Self.Vcall_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vcall_Customer" EntityType="Self.Vcall_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vcall_Question" EntityType="Self.Vcall_Question" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
