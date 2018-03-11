@@ -315,6 +315,12 @@ namespace Vcall.Controllers
 
         public void SaveData(string Client, string Question, string Answer )
         {
+
+
+            try
+            {
+
+           
             string _connectionString = WebConfigurationManager.ConnectionStrings["WebApps"].ToString();
             System.Data.SqlClient.SqlConnection sqlConnection1 =
                new System.Data.SqlClient.SqlConnection(_connectionString);
@@ -337,8 +343,14 @@ namespace Vcall.Controllers
                 sqlConnection1.Open();
                 cmd.ExecuteNonQuery();
                 sqlConnection1.Close();
-            
 
+            }
+             catch (Exception ex)
+            {
+                writelog(ex.ToString());
+
+
+            }
 
         }
 

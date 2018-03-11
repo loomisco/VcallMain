@@ -35,6 +35,10 @@ namespace Vcall.Helpers
         string Dt = DateTime.Now.ToString("yyyyMMdd");
         string Folder;
         string Fle;
+        string Variables;
+        Variables = "Person : " + System.Web.HttpContext.Current.Session["Personid"].ToString();
+        Variables = string.Concat(Variables, "Question" + System.Web.HttpContext.Current.Session["QuestionId"].ToString()); 
+        Header = string.Concat(Header, Variables);
 
         Folder = @"C:\APiLog";
         Fle = Folder + @"\" + Dt + ".txt";
